@@ -61,9 +61,30 @@ def tap(x, y):
     y = floor(y)  # Draw y coordinate on square's center
     player = state['player']  # Obtain the value 0(X) or 1(O)
     draw = players[player]  # Draw X or O depending on the turn
+
+    # Call is_occupied() and compare
+    if is_occupied(x, y):
+        return  # Exit def tap without doing anything
+    # Turn will change only if player selects an unoccupied square
+
     draw(x, y)  # Draw X or O where clicked
     update()  # Updates output screen
     state['player'] = not player  # Change turn
+
+    # Add new occupied square to the list of occupied positions
+    occupied_positions.append((x, y))
+
+
+def is_occupied(x, y):
+    """Check if a square is already occupied."""
+    # Iterate over the occupied positions and check if it maches (x, y)
+    for x_occupied, y_occupied in occupied_positions:
+        if x == x_occupied and y == y_occupied:
+            return True  # The square is occupied
+    return False  # The square is not occupied
+
+
+occupied_positions = []  # This list keeps track of occupied positions
 
 
 setup(420, 420, 370, 0)  # Screen size
