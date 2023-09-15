@@ -11,7 +11,7 @@ Exercises
 """
 
 from turtle import Turtle, clear, update, setup, hideturtle, tracer, listen
-from turtle import Turtle, ontimer, done, bgcolor, up, goto, dot, onkey
+from turtle import ontimer, done, bgcolor, up, goto, dot, onkey
 from freegames import floor, vector
 from random import choice
 state = {'score': 0}
