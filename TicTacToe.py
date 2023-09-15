@@ -24,16 +24,18 @@ def grid():
 
 def drawx(x, y):
     """Draw X player."""
-    line(x, y, x + 133, y + 133)
-    line(x, y + 133, x + 133, y)
+    """x and y are coordinates"""
+    line(x, y, x + 133, y + 133)  # Draw a back slash diagonal
+    line(x, y + 133, x + 133, y)  # Draw a diagonal
 
 
 def drawo(x, y):
     """Draw O player."""
-    up()
-    goto(x + 67, y + 5)
-    down()
-    circle(62)
+    """x and y are coordinates"""
+    up()  # Use up() to move the cursor without drawing lines
+    goto(x + 67, y + 5)  # Use goto(), the center point of the O
+    down()  # Draw lines when movement occur
+    circle(62)  # Use circle() to draw a circle with a radius of () pixels
 
 
 def floor(value):
