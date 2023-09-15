@@ -15,10 +15,11 @@ from freegames import line
 
 def grid():
     """Draw tic-tac-toe grid."""
-    line(-67, 200, -67, -200)
-    line(67, 200, 67, -200)
-    line(-200, -67, 200, -67)
-    line(-200, 67, 200, 67)
+    """Draw the lines to create 9 squares"""
+    line(-67, 200, -67, -200) # left vertical line
+    line(67, 200, 67, -200) # right vertical line
+    line(-200, -67, 200, -67) # bottom horizontal line
+    line(-200, 67, 200, 67) #  top horizontal line
 
 
 def drawx(x, y):
