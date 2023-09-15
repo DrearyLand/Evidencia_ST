@@ -42,6 +42,10 @@ def index(x, y):
 def xy(count):
     return (count % 8) * 50 - 200, (count // 8) * 50 - 200
 
+# Function to check if all tiles have been revealed
+def all_tiles_revealed():
+    return all(not tile_hidden for tile_hidden in hide)
+
 # Function to handle tile taps and update the game state
 def tap(x, y):
     global tap_count  # Declare tap_count as a global variable
@@ -84,6 +88,12 @@ def draw():
     goto(-180, -180)  # Adjust the position as needed
     color('black')
     write(f'Taps: {tap_count}', font=('Arial', 16, 'normal'))
+
+    if all_tiles_revealed():
+        up()
+        goto(0, 0)  # Adjust the position for the message
+        color('green')  # You can choose the color you prefer
+        write('Congratulations! You uncovered all tiles!', align='center', font=('Arial', 16, 'normal'))
 
     update()
     ontimer(draw, 100)
