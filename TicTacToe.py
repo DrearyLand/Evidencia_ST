@@ -26,8 +26,9 @@ def drawx(x, y):
     """x and y are coordinates"""
     pencolor("blue")  # Change to blue color
     width(5)  # Change thickness
-    line(x, y, x + 133, y + 133)  # Draw a back slash diagonal
-    line(x, y + 133, x + 133, y)  # Draw a diagonal
+    line(x + 23, y + 23, x + 110, y + 110)  # Draw a diagonal
+    line(x + 23, y + 110, x + 110, y + 23)  # Draw a back slash diagonal
+    # Both lines should measure the size of the square, 133 pixels
 
 
 def drawo(x, y):
