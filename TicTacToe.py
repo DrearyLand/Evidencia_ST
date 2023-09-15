@@ -59,10 +59,10 @@ def tap(x, y):
     state['player'] = not player  # Change turn
 
 
-setup(420, 420, 370, 0)
-hideturtle()
-tracer(False)
-grid()
-update()
-onscreenclick(tap)
-done()
+setup(420, 420, 370, 0)  # Screen size
+hideturtle()  # For turtle graphics
+tracer(False)  # Updates will be fluid
+grid()  # Calls def grid
+update()  # Calls def update
+onscreenclick(tap)  # Click function
+done()  # End program
