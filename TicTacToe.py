@@ -40,6 +40,7 @@ def drawo(x, y):
 
 def floor(value):
     """Round value down to grid with square size 133."""
+    """Place X and O centers on square's centers"""
     return ((value + 200) // 133) * 133 - 200
 
 
