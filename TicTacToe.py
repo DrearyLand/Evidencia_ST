@@ -8,7 +8,7 @@ Exercises
 4. How could you create a computer player?
 """
 
-from turtle import *
+import turtle
 from freegames import line
 
 
@@ -24,8 +24,8 @@ def grid():
 def drawx(x, y):
     """Draw X player."""
     """x and y are coordinates"""
-    pencolor("blue")  # Change to blue color
-    width(5)  # Change thickness
+    turtle.pencolor("blue")  # Change to blue color
+    turtle.width(5)  # Change thickness
     line(x + 23, y + 23, x + 110, y + 110)  # Draw a diagonal
     line(x + 23, y + 110, x + 110, y + 23)  # Draw a back slash diagonal
     # Both lines should measure the size of the square, 133 pixels
@@ -34,15 +34,19 @@ def drawx(x, y):
 def drawo(x, y):
     """Draw O player."""
     """x and y are coordinates"""
-    pencolor("red")  # Change to red color
-    width(5)  # Change thickness
+    turtle.pencolor("red")  # Change to red color
+    turtle.width(5)  # Change thickness
     size = 133  # Square size for x
     radius = 50  # Circle radius
-    up()  # Use up() to move the cursor without drawing lines
-    goto(x + size / 2, y + radius / 3)  # Use goto(), the center point of the O
-    setheading(0)  # Point the turtle to the right
-    down()  # Use down() to draw lines when movement occur
-    circle(radius)  # Use circle() to draw a circle with a radius of () pixels
+    turtle.up()  # Use up() to move the cursor without drawing lines
+
+    # Use goto() to center point of the O
+    turtle.goto(x + size / 2, y + radius / 3)
+    turtle.setheading(0)  # Point the turtle to the right
+    turtle.down()  # Use down() to draw lines when movement occur
+
+    # Use circle() to draw a circle with a radius of () pixels
+    turtle.circle(radius)
 
 
 def floor(value):
@@ -67,8 +71,8 @@ def tap(x, y):
         return  # Exit def tap without doing anything
     # Turn will change only if player selects an unoccupied square
 
-    draw(x, y)  # Draw X or O where clicked
-    update()  # Updates output screen
+    draw(x, y)  # Draw X or O where clicked calling drawx and drawo
+    turtle.update()  # Updates output screen
     state['player'] = not player  # Change turn
 
     # Add new occupied square to the list of occupied positions
@@ -87,10 +91,10 @@ def is_occupied(x, y):
 occupied_positions = []  # This list keeps track of occupied positions
 
 
-setup(420, 420, 370, 0)  # Screen size
-hideturtle()  # For turtle graphics
-tracer(False)  # Updates will be fluid
+turtle.setup(420, 420, 370, 0)  # Screen size
+turtle.hideturtle()  # For turtle graphics
+turtle.tracer(False)  # Updates will be fluid
 grid()  # Calls def grid
-update()  # Calls def update
-onscreenclick(tap)  # Click function
-done()  # End program
+turtle.update()  # Calls def update
+turtle.onscreenclick(tap)  # Click function
+turtle.done()  # End program
