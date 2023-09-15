@@ -35,10 +35,13 @@ def drawo(x, y):
     """x and y are coordinates"""
     pencolor("red")  # Change to red color
     width(5)  # Change thickness
+    size = 133  # Square size for x
+    radius = 50  # Circle radius
     up()  # Use up() to move the cursor without drawing lines
-    goto(x + 67, y + 5)  # Use goto(), the center point of the O
+    goto(x + size / 2, y + radius / 3)  # Use goto(), the center point of the O
+    setheading(0)  # Point the turtle to the right
     down()  # Use down() to draw lines when movement occur
-    circle(62)  # Use circle() to draw a circle with a radius of () pixels
+    circle(radius)  # Use circle() to draw a circle with a radius of () pixels
 
 
 def floor(value):
