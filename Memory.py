@@ -9,8 +9,17 @@ Exercises:
 5. Use letters instead of tiles.
 """
 
-from random import *
-from turtle import *
+from random import (
+    shuffle
+)
+from turtle import (
+    up, goto, down, color, begin_fill, forward,
+    left, end_fill, clear, shape, stamp, write,
+    update, ontimer, setup, addshape,
+    hideturtle, tracer, onscreenclick, done
+)
+
+
 from freegames import path
 
 # Load the car image
@@ -21,6 +30,7 @@ tiles = list(range(32)) * 2
 state = {'mark': None}
 hide = [True] * 64
 tap_count = 0  # Initialize the tap count
+
 
 # Function to draw a white square with a black outline at (x, y)
 def square(x, y):
@@ -34,17 +44,21 @@ def square(x, y):
         left(90)
     end_fill()
 
+
 # Function to convert (x, y) coordinates to a tile index
 def index(x, y):
     return int((x + 200) // 50 + ((y + 200) // 50) * 8)
+
 
 # Function to convert a tile count to (x, y) coordinates
 def xy(count):
     return (count % 8) * 50 - 200, (count // 8) * 50 - 200
 
+
 # Function to check if all tiles have been revealed
 def all_tiles_revealed():
     return all(not tile_hidden for tile_hidden in hide)
+
 
 # Function to handle tile taps and update the game state
 def tap(x, y):
@@ -61,6 +75,7 @@ def tap(x, y):
         state['mark'] = None
 
     tap_count += 1  # Increment the tap count
+
 
 # Function to draw the game board
 def draw():
@@ -93,13 +108,16 @@ def draw():
         up()
         goto(0, 0)  # Adjust the position for the message
         color('green')  # You can choose the color you prefer
-        write('Congratulations! You uncovered all tiles!', align='center', font=('Arial', 16, 'normal'))
+        write('Congratulations! You uncovered all tiles!',
+              align='center', font=('Arial', 16, 'normal'))
 
     update()
     ontimer(draw, 100)
 
+
 # Shuffle the tiles to randomize their positions
 shuffle(tiles)
+
 
 # Set up the turtle window
 setup(420, 420, 370, 0)
@@ -107,11 +125,14 @@ addshape(car)
 hideturtle()
 tracer(False)
 
+
 # Register the tap function to handle mouse clicks
 onscreenclick(tap)
 
+
 # Start the game loop by calling the draw function
 draw()
+
 
 # Finish the game
 done()
