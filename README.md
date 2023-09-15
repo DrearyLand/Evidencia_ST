@@ -1,4 +1,4 @@
-# Rama de Ian Julián Estrada Castro
+# Evidencia_ST
 ##### Videojuego: Tic Tac Toe
 
 -También conocido como "tres en raya", se trata de un juego de dos jugadores que marcan espacios en un tablero de 3x3 alternadamente con el objetivo de formar una línea de 3. 
