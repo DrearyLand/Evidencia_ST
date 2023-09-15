@@ -34,7 +34,7 @@ def drawo(x, y):
     """x and y are coordinates"""
     up()  # Use up() to move the cursor without drawing lines
     goto(x + 67, y + 5)  # Use goto(), the center point of the O
-    down()  # Draw lines when movement occur
+    down()  # Use down() to draw lines when movement occur
     circle(62)  # Use circle() to draw a circle with a radius of () pixels
 
 
@@ -44,19 +44,19 @@ def floor(value):
     return ((value + 200) // 133) * 133 - 200
 
 
-state = {'player': 0}
-players = [drawx, drawo]
+state = {'player': 0}  # Changes between 0 and 1
+players = [drawx, drawo]  # A list that draws the correct symbol each turn
 
 
 def tap(x, y):
     """Draw X or O in tapped square."""
-    x = floor(x)
-    y = floor(y)
-    player = state['player']
-    draw = players[player]
-    draw(x, y)
-    update()
-    state['player'] = not player
+    x = floor(x)  # Draw x coordinate on square's center
+    y = floor(y)  # Draw y coordinate on square's center
+    player = state['player']  # Obtain the value 0(X) or 1(O)
+    draw = players[player]  # Draw X or O depending on the turn
+    draw(x, y)  # Draw X or O where clicked
+    update()  # Updates output screen
+    state['player'] = not player  # Change turn
 
 
 setup(420, 420, 370, 0)
