@@ -9,7 +9,6 @@ Exercises
 """
 
 from turtle import *
-
 from freegames import line
 
 
@@ -25,6 +24,7 @@ def grid():
 def drawx(x, y):
     """Draw X player."""
     """x and y are coordinates"""
+    pencolor("blue")  # Change to blue color
     line(x, y, x + 133, y + 133)  # Draw a back slash diagonal
     line(x, y + 133, x + 133, y)  # Draw a diagonal
 
@@ -32,6 +32,7 @@ def drawx(x, y):
 def drawo(x, y):
     """Draw O player."""
     """x and y are coordinates"""
+    pencolor("red")  # Change to red color
     up()  # Use up() to move the cursor without drawing lines
     goto(x + 67, y + 5)  # Use goto(), the center point of the O
     down()  # Use down() to draw lines when movement occur
