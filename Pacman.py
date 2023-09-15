@@ -10,7 +10,8 @@ Exercises
 """
 
 from random import choice
-from turtle import Turtle, update, setup, hideturtle, tracer, listen, onkey, ontimer, done, bgcolor
+from turtle import Turtle, update, setup, hideturtle, tracer, listen
+from turtle import onkey, ontimer, done, bgcolor
 
 from freegames import floor, vector
 
